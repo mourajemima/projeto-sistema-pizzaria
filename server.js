@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cardapioRoutes = require('./src/routes/cardapio');
 
+app.use(express.json());
 app.use(cardapioRoutes);
 
 app.listen(8000, () => {
