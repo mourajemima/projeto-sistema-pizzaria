@@ -1,65 +1,118 @@
-# API Pizzalab | Sistema para pizzaria 
+# 🍕 API Pizzalab | Sistema para pizzaria 
 
-![Static Badge](https://img.shields.io/badge/Node.js-%2368A063)
-![Static Badge](https://img.shields.io/badge/Express-%23e6e8e3)
-![Static Badge](https://img.shields.io/badge/API-RESTful-%234a92d4)
+![Node.js](https://img.shields.io/badge/Node.js-%2368A063)
+![Express](https://img.shields.io/badge/Express-%23e6e8e3)
+![Sequelize](https://img.shields.io/badge/Sequelize-%23327ebb)
+![MySQL](https://img.shields.io/badge/MySQL-%2300758F)
+![API REST](https://img.shields.io/badge/API-RESTful-%234a92d4)
 
-# Índice
-* [Descrição](#descrição)
-* [Status](#status)
-* [Funcionamento da API](#funcionamento-da-api)
-    * [Rotas](#rotas)
-* [Acessando a API](#acessando-a-api)
-* [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Autores](#autores)
+---
 
-# Descrição
-Pizzalab é uma API simples desenvolvida em Node.js com Express para gerenciar um cardápio de pizzas. O sistema permite visualizar, adicionar, atualizar e remover pizzas de um cardápio.
+## 📋 Índice
+- [Descrição](#descrição)
+- [Status](#status)
+- [Funcionalidades](#funcionalidades)
+- [Rotas da API](#rotas-da-api)
+- [Como executar](#como-executar)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Autor](#autor)
 
-# Status 
-:construction: API em construção :construction:
+---
 
-# Funcionamento da API
-## Rotas 
-* **GET (/)**:  
-Exibe uma mensagem de boas-vindas.
-* **GET (/pizzas)**:  
-Retorna a lista de pizzas disponíveis.
-* **GET (/pizzas/:id)**:  
-Retorna os detalhes de uma pizza específica pelo ID.
-* **POST (/pizzas)**:  
-Adiciona uma nova pizza
-    * Enviar no corpo da requisição um json:
-    ``` json
-    {
-        "nome": "nome da pizza",
-        "preco": 40.00,
-        "ingredientes": ["ingrediente1", "ingrediente2"]
-    }
+## 📝 Descrição
+**Pizzalab** é uma API RESTful desenvolvida em **Node.js** utilizando o framework **Express** e ORM **Sequelize** com banco de dados **MySQL**.
+
+Ela permite gerenciar:
+- Clientes
+- Pizzas
+- Pedidos
+- Itens dos pedidos
+
+Com suporte completo a operações **CRUD** e **validações de entrada**, seguindo boas práticas de retorno com **status HTTP**.
+
+---
+
+## 🚧 Status
+✅ Projeto em fase final de desenvolvimento — pronto para testes.
+
+---
+
+## ✅ Funcionalidades
+- Cadastro, atualização, listagem e remoção de **clientes**
+- Gerenciamento de **pizzas** no cardápio
+- Criação e controle de **pedidos**
+- Associação de pizzas aos pedidos via **itens do pedido**
+- Validação de entradas com respostas claras de erro e sucesso
+
+---
+
+## 📌 Rotas da API
+
+### Clientes
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET    | `/clientes`         | Lista todos os clientes |
+| GET    | `/clientes/:id`     | Retorna um cliente por ID |
+| POST   | `/clientes`         | Cria um novo cliente |
+| PUT    | `/clientes/:id`     | Atualiza um cliente existente |
+| DELETE | `/clientes/:id`     | Remove um cliente |
+
+### Pizzas
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET    | `/pizzas`           | Lista todas as pizzas |
+| GET    | `/pizzas/:id`       | Retorna uma pizza por ID |
+| POST   | `/pizzas`           | Cria uma nova pizza |
+| PUT    | `/pizzas/:id`       | Atualiza uma pizza existente |
+| DELETE | `/pizzas/:id`       | Remove uma pizza do cardápio |
+
+### Pedidos
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET    | `/pedidos`          | Lista todos os pedidos |
+| GET    | `/pedidos/:id`      | Retorna um pedido por ID |
+| POST   | `/pedidos`          | Cria um novo pedido |
+| PUT    | `/pedidos/:id`      | Atualiza um pedido |
+| DELETE | `/pedidos/:id`      | Remove um pedido |
+
+### Itens do Pedido
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET    | `/itenspedido`         | Lista todos os itens dos pedidos |
+| GET    | `/itenspedido/:id`     | Retorna um item do pedido por ID |
+| POST   | `/itenspedido`         | Adiciona uma pizza a um pedido |
+| PUT    | `/itenspedido/:id`     | Atualiza um item do pedido |
+| DELETE | `/itenspedido/:id`     | Remove um item do pedido |
+
+---
+
+## 🚀 Como executar
+
+1. Tenha o **Node.js** e o **MySQL** instalados
+2. Clone este repositório:
+   ```bash
+   git clone https://github.com/mourajemima/pizzalab.git
+   cd pizzalab
+   ```
+3. Instale as dependências:
+    ```bash
+    npm install
     ```
-* **PUT (/pizzas/:id)**:  
-Atualiza uma pizza existe.
-* Enviar no corpo da requisição um json:
-    ``` json
-    {
-        "nome": "novo da pizza",
-        "preco": 41.50,
-        "ingredientes": ["novo ingrediente1", "novo ingrediente2"]
-    }
+4. Configure o banco de dados em src/config/database.js
+5. Execute o servidor:
+    ```bash
+    node server.js
     ```
-* **DELETE (/pizzas/:id)**:  
-Remove uma pizza do cardápio
+6. Teste as rotas no Postman ou outro cliente HTTP
 
-# Acessando a API
-1. Tenha o Node.js na sua máquina
-2. Clone este repositório ou baixe 
-3. Dê preferência por abrir no Visual Studio Code
-4. Instale as dependências que encontram-se no arquivo package.json
-5. Execute o servidor no diretório do projeto com o comando node server.js
+---
 
-# Tecnologias utilizadas
+## Tecnologias utilizadas
 * Node.js
 * Express
+* Sequelize
+* MySQL
+* Postman
 
 # Autores
 <p>
