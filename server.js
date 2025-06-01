@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const sequelize = require('./src/config/database');
+const authRoutes = require('./src/routes/authRoutes');
 const clienteRoutes = require('./src/routes/clienteRoutes');
 const pizzaRoutes = require('./src/routes/pizzaRoutes');
 const pedidoRoutes = require('./src/routes/pedidoRoutes');
@@ -14,6 +15,7 @@ sequelize.authenticate().then(() => {
     console.log('Erro ao conectar: ', err);
 });
 
+app.use('/auth', authRoutes);
 app.use('/clientes', clienteRoutes);
 app.use('/pizzas', pizzaRoutes);
 app.use('/pedidos', pedidoRoutes);
